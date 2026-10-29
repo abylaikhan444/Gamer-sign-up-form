@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Jetbrains mono";
+  src: url(../assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Jetbrains mono";
+  src: url(../assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url(../assets/fonts/orbitron/orbitron-variable.ttf);
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url(../assets/fonts/orbitron/orbitron-variable.ttf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+body {
+  background-color: var(--page-background-color);
+}
+
+/* BRAND PANEL - LEFT SIDE */
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.brand-panel {
+}
+.brand-panel__logo {
+  width: 100%;
+  max-width: 150px;
+}
+.brand-panel__title {
+  font-family: "Orbitron", sans-serif;
+  color: var(--title-color);
+  font-size: 3.8rem;
+  margin-top: 60px;
+  margin-bottom: 0;
+}
+.brand-panel__title::before {
+  content: "// ";
+  color: var(--title-slesh-color);
+}
+.brand-panel__desc {
+  color: var(--desc-text-color);
+  font-family: "Jetbrains mono", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+.operator-panel {
+  /* не забыть поменять переменную позже */
+  border-top: 1px solid var(--desc-text-color);
+  margin-top: 50px;
+  font-weight: 500;
+}
+.operator-panel__header {
+  padding-top: 20px;
+  color: var(--desc-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Jetbrains mono", sans-serif;
+  font-size: 0.8rem;
+}
+/* .operator-panel__label {
+}
+.operator-panel__count {
+} */
+.operator-panel__name {
+  color: var(--operator-panel-name);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+}
+.status-list {
+  list-style: none;
+  padding: 0;
+  color: var(--desc-text-color);
+  font-family: "Jetbrains mono", sans-serif;
+}
+.status-list__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* отступы между словами и линией */
+}
+
+/* Назначаем порядок элементам */
+.status-list__label {
+  font-size: 0.8rem;
+  order: 1; /* первый */
+}
+
+.status-list__value {
+  font-size: 0.8rem;
+  order: 3; /* последний */
+}
+
+/* Сама линия */
+.status-list__row::after {
+  content: "";
+  order: 2; /* встанет строго между label и value! */
+  flex-grow: 1; /* займет ВСЁ свободное место между ними */
+  border-bottom: 1px solid var(--desc-text-color);
+  /* Небольшая поправка высоты, чтобы точки были на уровне середины букв: */
+  margin-bottom: 0.25rem;
+}
+
+/* FORM PANER - RIGHT SIDE */
+
+
+.form-panel {
+  width: 300px;
+  height: 700px;
+  background-color: var(--form-background-color);
+}

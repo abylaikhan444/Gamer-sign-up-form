@@ -15,7 +15,10 @@
       <aside class="brand-panel">
         <img class="brand-panel__logo" src="/assets/images/logo.svg" alt="NEONCORE logo" />
 
-        <h1 class="brand-panel__title">JOIN THE <br /> NEXUS</h1>
+        <h1 class="brand-panel__title">
+          JOIN THE <br />
+          NEXUS
+        </h1>
         <p class="brand-panel__desc">INITIALIZE YOUR NEONCORE IDENTITY</p>
 
         <div class="operator-panel">
@@ -49,7 +52,69 @@
         </div>
       </aside>
       <!-- Правая колонка: форма -->
-      <main class="form-panel">RIGHT SIDE</main>
+      <main class="form-panel">
+        <div class="form-title">
+          <p class="form-title__left-text">NEW OPERATOR</p>
+          <p class="form-title__right-text">ALL FIELD REQUIRED</p>
+        </div>
+        <div class="form-group">
+          <label for="callsign" class="form-group__label">CALLSIGN</label>
+          <input
+            type="text"
+            id="callsign"
+            name="callsign"
+            class="form-group__input"
+            placeholder="e.g. Vortex_07"
+            autocomplete="off"
+          />
+          <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-group__label">EMAIL</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            class="form-group__input"
+            placeholder="your@example.com "
+            autocomplete="off"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-group__label">PASSWORD</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" class="form-group__input" />
+            <button type="button" class="btn-toggle-pass" aria-label="Show password">
+              <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
+            </button>
+          </div>
+          <div class="password-strength">
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
+            <span class="password-strength__bar"></span>
+          </div>
+          <p class="form-group__hint">At least 8 characters</p>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-group__label">CONFIRM PASSWORD</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" class="form-group__input" />
+            <button type="button" class="btn-toggle-pass" aria-label="Show password">
+              <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
+            </button>
+          </div>
+        </div>
+        <div class="form-checkbox">
+          <input type="checkbox" id="terms" name="terms" class="form-checkbox__input" />
+          <label for="terms" class="form-checkbox__label"
+            >I accept the <a href="#" class="form-link">Terms</a> and
+            <a href="#" class="form-link">Privacy Policy</a>.</label
+          >
+        </div>
+        <button type="submit" class="btn-submit">INITIALIZE ACCOUNT</button>
+        <p class="login-text">Already on operator? <a href="#" class="login-text__link">log in</a></p>
+      </main>
     </div>
     <!-- <footer class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by

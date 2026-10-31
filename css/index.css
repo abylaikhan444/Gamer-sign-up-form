@@ -7,4 +7,20 @@
   --title-slesh-color: #baf237;
   --desc-text-color: #596269;
   --operator-panel-name: #8b93a1;
+
+  /* FORM VARIABLES */
+  --input-text-color: #ffff;
+  --corner-border-color: #baf237;
+  --label-border-color-focus: #baf237;
+  --input-btn-background: #baf237;
+  --button-eye-border-color: #baf237;
+  --lable-background-color: #06090e;
+  --lable-border-color: #3f464e;
+  --password-strength-background-color: #313d4c;
+  --checkbox-border-color: #3f464e;
+  --form-link-color: #baf237;
+  --checkbox-backround-color: #06090e;
+  --password-strength-bar-color: #baf237;
+  --btn-background-hover: #fff;
+  --btn-boxshadow-color: #566d23;
 }

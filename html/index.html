@@ -30,15 +30,15 @@
           <ul class="status-list">
             <li class="status-list__row">
               <span class="status-list__label">CALLSIGN</span>
-              <span class="status-list__value">PENDING</span>
+              <span id="status-callsign" class="status-list__value">PENDING</span>
             </li>
             <li class="status-list__row">
               <span class="status-list__label">EMAIL</span>
-              <span class="status-list__value">PENDING</span>
+              <span id="status-email" class="status-list__value">PENDING</span>
             </li>
             <li class="status-list__row">
               <span class="status-list__label">PASSWORD</span>
-              <span class="status-list__value">PENDING</span>
+              <span id="status-password" class="status-list__value">PENDING</span>
             </li>
             <li class="status-list__row">
               <span class="status-list__label">CONFIRM</span>
@@ -57,7 +57,7 @@
           <p class="form-title__left-text">NEW OPERATOR</p>
           <p class="form-title__right-text">ALL FIELD REQUIRED</p>
         </div>
-        <div class="form-group">
+        <div class="form-group .form-group__input--error">
           <label for="callsign" class="form-group__label">CALLSIGN</label>
           <input
             type="text"
@@ -67,7 +67,10 @@
             placeholder="e.g. Vortex_07"
             autocomplete="off"
           />
-          <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
+          <div class="form-group__name-input">
+            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+            <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
+          </div>
         </div>
         <div class="form-group">
           <label for="email" class="form-group__label">EMAIL</label>
@@ -79,6 +82,10 @@
             placeholder="your@example.com "
             autocomplete="off"
           />
+          <div class="form-group__email-input">
+            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+            <p class="form-group__paragraph">Enter your email</p>
+          </div>
         </div>
         <div class="form-group">
           <label for="password" class="form-group__label">PASSWORD</label>
@@ -99,7 +106,7 @@
         <div class="form-group">
           <label for="password" class="form-group__label">CONFIRM PASSWORD</label>
           <div class="input-wrapper">
-            <input type="password" id="password" name="password" class="form-group__input" />
+            <input type="password" id="password-confirm" name="password" class="form-group__input" />
             <button type="button" class="btn-toggle-pass" aria-label="Show password">
               <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
             </button>
@@ -120,5 +127,7 @@
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by
       <a href="#">Your Name Here</a>.
     </footer> -->
+
+    <script src="/js/main.js"></script>
   </body>
 </html>

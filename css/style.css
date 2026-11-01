@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
   margin-top: 100px;
 }
 .brand-panel {
@@ -191,6 +191,9 @@ body {
   box-sizing: border-box;
   color: var(--input-text-color);
 }
+.form-group__input--error {
+  border: 2px solid #b0838a;
+}
 .form-group__input:focus {
   border: 0.1px solid var(--label-border-color-focus);
   outline: 2px solid var(--label-border-color-focus);
@@ -199,8 +202,24 @@ body {
 .form-group__input::placeholder {
   font-family: "Jetbrains mono", sans-serif;
 }
+.form-group__name-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.form-group__alert-icon {
+  display: none;
+  width: 15px;
+  height: 15px;
+}
 .form-group__paragraph {
   font-size: 0.7rem;
+}
+.form-group__paragraph--error {
+  color: #b0838a;
+}
+.form-group__email-input {
+  
 }
 .input-wrapper {
   position: relative;
@@ -257,7 +276,6 @@ body {
   place-content: center;
   cursor: pointer;
 }
-
 .form-checkbox__input::before {
   content: "";
   width: 8px;
@@ -294,6 +312,9 @@ body {
   color: var(--form-link-color);
   text-decoration: underline;
 }
+.form-link:hover {
+  color: var(--form-linkhover-color);
+}
 .btn-submit {
   font-family: "Jetbrains mono", sans-serif;
   margin-top: 20px;
@@ -304,8 +325,7 @@ body {
   border: none;
 }
 .btn-submit:focus {
-  outline: var(--form-link-color) solid 2px;
-  outline-offset: 3px;
+  outline: solid 2px var(--form-link-color);
 }
 .btn-submit:hover {
   background-color: var(--btn-background-hover);
@@ -323,4 +343,7 @@ body {
 }
 .login-text__link {
   color: var(--form-link-color);
+}
+.login-text__link:hover {
+  color: var(--form-linkhover-color);
 }

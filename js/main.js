@@ -34,6 +34,10 @@ inputName.addEventListener("input", () => {
 // ==========================================
 const passwordInput = document.querySelector("#password");
 const passwordBarList = document.querySelectorAll(".password-strength__bar");
+const defaultPasswordHint = "At least 8 characters";
+const passwordHint = document.querySelector(".form-group__hint");
+const statusPassword = document.querySelector("#status-password");
+const alertIconPassword = document.querySelector(".form-group__password-input .form-group__alert-icon");
 
 function calculateStrengthPassword(password) {
   let count = 0;
@@ -55,17 +59,48 @@ function calculateStrengthPassword(password) {
   return count;
 }
 
+function getPasswordError(value) {
+  const trimmed = value.trim();
+  if (trimmed === "") {
+    return "Enter a password";
+  }
+  if (trimmed.length < 8) {
+    return "Use at least 8 characters";
+  }
+  return null;
+}
+
+function getConfirmPasswordError(confirmVal, passVal) {
+  if (confirmVal === "") {
+    return "Confirm your password";
+  }
+  if (confirmVal !== passVal) {
+    return "Passwords don't match";
+  }
+
+  return null;
+}
+
 passwordInput.addEventListener("input", () => {
   const score = calculateStrengthPassword(passwordInput.value);
   passwordBarList.forEach((bar, index) => {
     bar.classList.toggle("password-strength__bar--active", index < score);
   });
+
+  const error = getPasswordError(passwordInput.value);
+  updateFieldUI(passwordInput, passwordHint, statusPassword, alertIconPassword, error, defaultPasswordHint, null);
+
+  if (inputConfirm.value !== "") {
+    const confirmError = getConfirmPasswordError(confirmPasswordInput.value, passwordInput.value);
+    updateFieldUI(confirmPasswordInput, confirmPasswordHint, statusConfirm, null, confirmError, "", null);
+  }
 });
 
 // ==========================================
 // 4. ВАЛИДАЦИЯ NAME INPUT
 // ==========================================
-function updateFieldUI(input, hint, status, icon, error, defaultHint) {
+
+function updateFieldUI(input, hint, status, icon, error, defaultHint, tickIcon) {
   if (error === null) {
     // 🟢 ВСЁ ХОРОШО:
     status.textContent = "OK";
@@ -75,6 +110,8 @@ function updateFieldUI(input, hint, status, icon, error, defaultHint) {
     hint.classList.remove("form-group__paragraph--error");
 
     input.classList.remove("form-group__input--error");
+
+    if (tickIcon) tickIcon.style.display = "block";
     if (icon) icon.style.display = "none";
   } else {
     // 🔴 ОШИБКА:
@@ -85,6 +122,8 @@ function updateFieldUI(input, hint, status, icon, error, defaultHint) {
     hint.classList.add("form-group__paragraph--error");
 
     input.classList.add("form-group__input--error");
+
+    if (tickIcon) tickIcon.style.display = "none";
     if (icon) icon.style.display = "block";
   }
 }
@@ -114,10 +153,11 @@ const callsignHint = document.querySelector(".form-group__paragraph");
 const statusCallsign = document.querySelector("#status-callsign");
 const alertIconCallsign = document.querySelector(".form-group__name-input .form-group__alert-icon");
 const defaultCallsignHint = "3–20 characters: letters, numbers, _ or -";
+const tickIconName = document.querySelector(".form-group__tick-icon__name");
 
 inputName.addEventListener("input", () => {
   const error = getCallsignError(inputName.value);
-  updateFieldUI(inputName, callsignHint, statusCallsign, alertIconCallsign, error, defaultCallsignHint);
+  updateFieldUI(inputName, callsignHint, statusCallsign, alertIconCallsign, error, defaultCallsignHint, tickIconName);
 });
 
 // ==========================================
@@ -126,7 +166,10 @@ inputName.addEventListener("input", () => {
 
 const inputEmail = document.querySelector("#email");
 const defaultCallsignHintEmail = "Enter your email";
-const emailHint = 
+const emailHint = document.querySelector(".form-group__email-input .form-group__paragraph");
+const alertIconEmail = document.querySelector(".form-group__email-input .form-group__alert-icon");
+const statusEmail = document.querySelector("#status-email");
+const tickIconEmail = document.querySelector(".form-group__tick-icon__email");
 
 function getEmailError(value) {
   const trimmed = value.trim();
@@ -143,5 +186,39 @@ function getEmailError(value) {
 
 inputEmail.addEventListener("input", () => {
   const error = getEmailError(inputEmail.value);
-  updateFieldUI(inputEmail, emailHint, statusEmail, alertIconEmail, error, defaultCallsignHintEmail);
+  updateFieldUI(inputEmail, emailHint, statusEmail, alertIconEmail, error, defaultCallsignHintEmail, tickIconEmail);
 });
+
+// ==========================================
+// 6. ВАЛИДАЦИЯ CONFIRM INPUT
+// ==========================================
+
+const inputConfirm = document.querySelector("#password-confirm");
+const statusConfirm = document.querySelector("#status-confirm");
+const confirmHint = document.querySelector(".form-group__password-input .form-group__hint");
+const confirmAlertIcon = document.querySelector(".form-group__alert-icon");
+
+inputConfirm.addEventListener("input", () => {
+  const error = getConfirmPasswordError(inputConfirm.value, passwordInput.value);
+  updateFieldUI(inputConfirm, confirmHint, statusConfirm, confirmAlertIcon, error, "", null);
+});
+
+// ==========================================
+// 7. НАСТРОЙКА CHECKBOX
+// ==========================================
+
+const statusTerms = document.querySelector("#status-terms");
+const inputTerms = document.querySelector("#terms");
+
+inputTerms.addEventListener("change", () => {
+  if (inputTerms.checked) {
+    statusTerms.textContent = "OK";
+  } else {
+    statusTerms.textContent = "REQUIRED";
+  }
+});
+
+// ==========================================
+// 8. ФУНКЦИЯ COUNT ДЛЯ ПОДСЧЕТА СТАТУСОВ
+// ==========================================
+

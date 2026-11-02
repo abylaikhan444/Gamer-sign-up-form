@@ -42,11 +42,11 @@
             </li>
             <li class="status-list__row">
               <span class="status-list__label">CONFIRM</span>
-              <span class="status-list__value">PENDING</span>
+              <span id="status-confirm" class="status-list__value">PENDING</span>
             </li>
             <li class="status-list__row">
               <span class="status-list__label">TERMS</span>
-              <span class="status-list__value">REQUIRED</span>
+              <span class="status-list__value" id="status-terms">REQUIRED</span>
             </li>
           </ul>
         </div>
@@ -71,8 +71,9 @@
             <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
             <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
           </div>
+          <img class="form-group__tick-icon__name" src="/assets/images/icon-tick-20.svg" alt="" />
         </div>
-        <div class="form-group">
+        <div class="form-group .form-group__input--error">
           <label for="email" class="form-group__label">EMAIL</label>
           <input
             type="text"
@@ -86,6 +87,7 @@
             <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
             <p class="form-group__paragraph">Enter your email</p>
           </div>
+          <img class="form-group__tick-icon__email" src="/assets/images/icon-tick-20.svg" alt="" />
         </div>
         <div class="form-group">
           <label for="password" class="form-group__label">PASSWORD</label>
@@ -101,7 +103,10 @@
             <span class="password-strength__bar"></span>
             <span class="password-strength__bar"></span>
           </div>
-          <p class="form-group__hint">At least 8 characters</p>
+          <div class="form-group__password-input">
+            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+            <p class="form-group__hint">At least 8 characters</p>
+          </div>
         </div>
         <div class="form-group">
           <label for="password" class="form-group__label">CONFIRM PASSWORD</label>
@@ -110,6 +115,10 @@
             <button type="button" class="btn-toggle-pass" aria-label="Show password">
               <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
             </button>
+          </div>
+          <div class="form-group__password-input">
+            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+            <p class="form-group__hint"></p>
           </div>
         </div>
         <div class="form-checkbox">

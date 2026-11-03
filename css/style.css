@@ -1,26 +1,23 @@
+/* ==========================================
+   JetBrains Mono (Вариативный)
+   ========================================== */
 @font-face {
   font-family: "Jetbrains mono";
-  src: url(../assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf);
+  src: url("../assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf") format("truetype");
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900; /* поддерживает ЛЮБУЮ жирность от 100 до 900 */
+  font-display: swap;
 }
-@font-face {
-  font-family: "Jetbrains mono";
-  src: url(../assets/fonts/jetbrains-mono/jetbrains-mono-variable.ttf);
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  font-family: "Orbitron";
-  src: url(../assets/fonts/orbitron/orbitron-variable.ttf);
-  font-style: normal;
-  font-weight: 400;
-}
+
+/* ==========================================
+   Orbitron (Вариативный)
+   ========================================== */
 @font-face {
   font-family: "Orbitron";
-  src: url(../assets/fonts/orbitron/orbitron-variable.ttf);
+  src: url("../assets/fonts/orbitron/orbitron-variable.ttf") format("truetype");
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400 900; /* поддерживает ЛЮБУЮ жирность от 400 до 900 */
+  font-display: swap;
 }
 
 body {

@@ -19,8 +19,8 @@
 
 ## 🔗 Ссылки
 
-- **Live Demo (Демо):** [Открыть на GitHub Pages / Vercel](X)
-- **Frontend Mentor Solution:** [Посмотреть решение на Frontend Mentor]([https://www.frontendmentor.io/solutions](https://www.frontendmentor.io/solutions/html5-css3-javascript-d_siVgzDDK))
+- **Live Demo (Демо):** https://abylaikhan444.github.io/Gamer-sign-up-form/
+- **Frontend Mentor Solution:** [Посмотреть решение на Frontend Mentor]https://www.frontendmentor.io/solutions/html5-css3-javascript-d_siVgzDDK
 
 ---
 

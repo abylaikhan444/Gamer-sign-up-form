@@ -53,83 +53,93 @@
       </aside>
       <!-- Правая колонка: форма -->
       <main class="form-panel">
-        <div class="form-title">
-          <p class="form-title__left-text">NEW OPERATOR</p>
-          <p class="form-title__right-text">ALL FIELD REQUIRED</p>
+        <form id="signup-form">
+          <div class="form-title">
+            <p class="form-title__left-text">NEW OPERATOR</p>
+            <p class="form-title__right-text">ALL FIELD REQUIRED</p>
+          </div>
+          <div class="form-group .form-group__input--error">
+            <label for="callsign" class="form-group__label">CALLSIGN</label>
+            <input
+              type="text"
+              id="callsign"
+              name="callsign"
+              class="form-group__input"
+              placeholder="e.g. Vortex_07"
+              autocomplete="off"
+            />
+            <div class="form-group__name-input">
+              <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+              <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
+            </div>
+            <img class="form-group__tick-icon__name" src="/assets/images/icon-tick-20.svg" alt="" />
+          </div>
+          <div class="form-group .form-group__input--error">
+            <label for="email" class="form-group__label">EMAIL</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="form-group__input"
+              placeholder="your@example.com "
+              autocomplete="off"
+            />
+            <div class="form-group__email-input">
+              <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+              <p class="form-group__paragraph">Enter your email</p>
+            </div>
+            <img class="form-group__tick-icon__email" src="/assets/images/icon-tick-20.svg" alt="" />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-group__label">PASSWORD</label>
+            <div class="input-wrapper">
+              <input type="password" id="password" name="password" class="form-group__input" />
+              <button type="button" class="btn-toggle-pass" aria-label="Show password">
+                <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
+              </button>
+            </div>
+            <div class="password-strength">
+              <span class="password-strength__bar"></span>
+              <span class="password-strength__bar"></span>
+              <span class="password-strength__bar"></span>
+              <span class="password-strength__bar"></span>
+            </div>
+            <div class="form-group__password-input">
+              <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+              <p class="form-group__hint">At least 8 characters</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-group__label">CONFIRM PASSWORD</label>
+            <div class="input-wrapper">
+              <input type="password" id="password-confirm" name="password" class="form-group__input" />
+              <button type="button" class="btn-toggle-pass" aria-label="Show password">
+                <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
+              </button>
+            </div>
+            <div class="form-group__password-input">
+              <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
+              <p class="form-group__hint"></p>
+            </div>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="terms" name="terms" class="form-checkbox__input" />
+            <label for="terms" class="form-checkbox__label"
+              >I accept the <a href="#" class="form-link">Terms</a> and
+              <a href="#" class="form-link">Privacy Policy</a>.</label
+            >
+          </div>
+          <button type="submit" class="btn-submit">INITIALIZE ACCOUNT</button>
+          <p class="login-text">Already on operator? <a href="#" class="login-text__link">log in</a></p>
+        </form>
+        <div id="success-view" class="success-panel" style="display: none">
+          <img class="success-panel__icon" src="/assets/images/icon-hex-check.svg" alt="check icon" />
+          <h2 class="success-panel__title">Handshake complete</h2>
+          <p class="success-panel__desc">
+            Operator <span id="provisioned-callsign" class="text-neon"></span> provisioned. Your account is ready.
+          </p>
+          <button type="button" class="btn-submit">Continue to log in</button>
         </div>
-        <div class="form-group .form-group__input--error">
-          <label for="callsign" class="form-group__label">CALLSIGN</label>
-          <input
-            type="text"
-            id="callsign"
-            name="callsign"
-            class="form-group__input"
-            placeholder="e.g. Vortex_07"
-            autocomplete="off"
-          />
-          <div class="form-group__name-input">
-            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
-            <p class="form-group__paragraph">3–20 characters: letters, numbers, _ or -</p>
-          </div>
-          <img class="form-group__tick-icon__name" src="/assets/images/icon-tick-20.svg" alt="" />
-        </div>
-        <div class="form-group .form-group__input--error">
-          <label for="email" class="form-group__label">EMAIL</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            class="form-group__input"
-            placeholder="your@example.com "
-            autocomplete="off"
-          />
-          <div class="form-group__email-input">
-            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
-            <p class="form-group__paragraph">Enter your email</p>
-          </div>
-          <img class="form-group__tick-icon__email" src="/assets/images/icon-tick-20.svg" alt="" />
-        </div>
-        <div class="form-group">
-          <label for="password" class="form-group__label">PASSWORD</label>
-          <div class="input-wrapper">
-            <input type="password" id="password" name="password" class="form-group__input" />
-            <button type="button" class="btn-toggle-pass" aria-label="Show password">
-              <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
-            </button>
-          </div>
-          <div class="password-strength">
-            <span class="password-strength__bar"></span>
-            <span class="password-strength__bar"></span>
-            <span class="password-strength__bar"></span>
-            <span class="password-strength__bar"></span>
-          </div>
-          <div class="form-group__password-input">
-            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
-            <p class="form-group__hint">At least 8 characters</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="password" class="form-group__label">CONFIRM PASSWORD</label>
-          <div class="input-wrapper">
-            <input type="password" id="password-confirm" name="password" class="form-group__input" />
-            <button type="button" class="btn-toggle-pass" aria-label="Show password">
-              <img src="/assets/images/icon-eye.svg" alt="icon eye for password" />
-            </button>
-          </div>
-          <div class="form-group__password-input">
-            <img class="form-group__alert-icon" src="/assets/images/icon-alert.svg" alt="alert icon" />
-            <p class="form-group__hint"></p>
-          </div>
-        </div>
-        <div class="form-checkbox">
-          <input type="checkbox" id="terms" name="terms" class="form-checkbox__input" />
-          <label for="terms" class="form-checkbox__label"
-            >I accept the <a href="#" class="form-link">Terms</a> and
-            <a href="#" class="form-link">Privacy Policy</a>.</label
-          >
-        </div>
-        <button type="submit" class="btn-submit">INITIALIZE ACCOUNT</button>
-        <p class="login-text">Already on operator? <a href="#" class="login-text__link">log in</a></p>
       </main>
     </div>
     <!-- <footer class="attribution">

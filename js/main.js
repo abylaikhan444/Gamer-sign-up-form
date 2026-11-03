@@ -12,6 +12,7 @@ eyeButtons.forEach((btn) => {
       input.setAttribute("type", "password");
     }
   });
+  updateReadyCount();
 });
 
 // ==========================================
@@ -27,6 +28,7 @@ inputName.addEventListener("input", () => {
   } else {
     userName.textContent = inputName.value;
   }
+  updateReadyCount();
 });
 
 // ==========================================
@@ -94,6 +96,7 @@ passwordInput.addEventListener("input", () => {
     const confirmError = getConfirmPasswordError(confirmPasswordInput.value, passwordInput.value);
     updateFieldUI(confirmPasswordInput, confirmPasswordHint, statusConfirm, null, confirmError, "", null);
   }
+  updateReadyCount();
 });
 
 // ==========================================
@@ -158,6 +161,7 @@ const tickIconName = document.querySelector(".form-group__tick-icon__name");
 inputName.addEventListener("input", () => {
   const error = getCallsignError(inputName.value);
   updateFieldUI(inputName, callsignHint, statusCallsign, alertIconCallsign, error, defaultCallsignHint, tickIconName);
+  updateReadyCount();
 });
 
 // ==========================================
@@ -187,6 +191,7 @@ function getEmailError(value) {
 inputEmail.addEventListener("input", () => {
   const error = getEmailError(inputEmail.value);
   updateFieldUI(inputEmail, emailHint, statusEmail, alertIconEmail, error, defaultCallsignHintEmail, tickIconEmail);
+  updateReadyCount();
 });
 
 // ==========================================
@@ -201,6 +206,7 @@ const confirmAlertIcon = document.querySelector(".form-group__alert-icon");
 inputConfirm.addEventListener("input", () => {
   const error = getConfirmPasswordError(inputConfirm.value, passwordInput.value);
   updateFieldUI(inputConfirm, confirmHint, statusConfirm, confirmAlertIcon, error, "", null);
+  updateReadyCount();
 });
 
 // ==========================================
@@ -216,9 +222,55 @@ inputTerms.addEventListener("change", () => {
   } else {
     statusTerms.textContent = "REQUIRED";
   }
+  updateReadyCount();
 });
 
 // ==========================================
 // 8. ФУНКЦИЯ COUNT ДЛЯ ПОДСЧЕТА СТАТУСОВ
 // ==========================================
 
+function updateReadyCount() {
+  const allStatuses = [...document.querySelectorAll(".status-list__value")];
+  const statusOk = allStatuses.filter((el) => el.textContent === "OK");
+  const countText = document.querySelector(".operator-panel__count");
+  countText.textContent = `${statusOk.length}/5 READY`;
+}
+
+// ==========================================
+// 9. SUBMIT FUNCTION
+// ==========================================
+
+const btnSubmit = document.querySelector(".btn-submit");
+const successView = document.querySelector("#success-view");
+const form = document.querySelector("#signup-form");
+const provisionedCallsign = document.querySelector("#provisioned-callsign");
+const readyCounter = document.querySelector(".operator-panel__count");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const allStatuses = [...document.querySelectorAll(".status-list__value")];
+  const readyCount = allStatuses.filter((el) => el.textContent === "OK").length;
+
+  if (readyCount === 5) {
+    // 🟢 Все 5 полей валидны!
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = "Transmitting_";
+
+    // Имитируем отправку на сервер (1.5 секунды)
+    setTimeout(() => {
+      // 1. Меняем счетчик на Provisioned
+      readyCounter.textContent = "Provisioned";
+
+      // 2. Подставляем ник оператора в экран успеха
+      provisionedCallsign.textContent = inputName.value.trim();
+
+      // 3. Прячем форму и показываем поздравление!
+      form.style.display = "none";
+      successView.style.display = "block";
+    }, 1500);
+  } else {
+    // 🔴 Если что-то не заполнено:
+    // Можно принудительно вызвать события input для пустых полей, чтобы показать ошибки!
+    console.log("Форма не готова, заполнено только: " + readyCount);
+  }
+});

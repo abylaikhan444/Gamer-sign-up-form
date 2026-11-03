@@ -369,3 +369,25 @@ body {
 .login-text__link:hover {
   color: var(--form-linkhover-color);
 }
+
+.success-panel {
+  padding: 50px 0;
+}
+.success-panel__title {
+  color: #fff;
+}
+.success-panel__title::before {
+  content: "// ";
+  color: #baf237;
+}
+.success-panel__desc {
+  color: #747e88;
+  font-size: 0.8rem;
+}
+.text-neon {
+  color: #baf237;
+}
+.success-panel__icon {
+}
+.btn-submit {
+}
